@@ -85,6 +85,7 @@ MyTrips.DetailsView = function (controller) {
                 $('.jPreloader').hide();
                 $('.jpageEndPreloader').hide();
             } else {
+				$('.jPreloader').hide();
                 $('.jpageEndPreloader').hide();
             }
         }
