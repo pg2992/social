@@ -23,9 +23,9 @@ MyTrips.Model = function (authResult) {
 
     this.user = null;//authResult.user.getObject();
 
-    this.tripsPageModel = { currentPage: 0, pageSize: 1, totalItems: 0, totalFilterItems: 0, isLastPage: false };
+    this.tripsPageModel = { currentPage: 0, pageSize: 5, totalItems: 0, totalFilterItems: 0, isLastPage: false };
 
-    this.postsPageModel = { currentPage: 0, pageSize: 1, totalItems: 0, totalFilterItems: 0, isLastPage: false };
+    this.postsPageModel = { currentPage: 0, pageSize: 5, totalItems: 0, totalFilterItems: 0, isLastPage: false };
 
     this.currentTrip = {
         trip: null
