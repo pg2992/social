@@ -1,0 +1,595 @@
+@media (max-width: 767px)
+{
+    body
+    {
+        padding-left: 0px;
+        padding-right: 0px;
+        position: relative;
+    }
+}
+
+body
+{
+    font-size: 15px;
+    background: #eeeeee;
+}
+
+
+@font-face
+{
+    font-family: 'rovia-app-icon';
+    src: url('../fonts/rovia-app-icon.eot');
+    src: url('../fonts/rovia-app-icon.eot?#iefix') format('embedded-opentype'), url('../fonts/rovia-app-icon.woff') format('woff'), url('../fonts/rovia-app-icon.ttf') format('truetype'), url('../fonts/rovia-app-icon.svg#rovia-app-icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="ico-"], [class*=" ico-"]
+{
+    font-family: 'rovia-app-icon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-videos:before
+{
+    content: "\e600";
+}
+
+.ico-timeline:before
+{
+    content: "\e601";
+}
+
+.ico-share:before
+{
+    content: "\e602";
+}
+
+.ico-settings:before
+{
+    content: "\e603";
+}
+
+.ico-search:before
+{
+    content: "\e604";
+}
+
+.ico-private-trip:before
+{
+    content: "\e605";
+}
+
+.ico-comment:before
+{
+    content: "\e606";
+}
+
+.ico-collaborators:before
+{
+    content: "\e607";
+}
+
+.ico-close:before
+{
+    content: "\e608";
+}
+
+.ico-calander:before
+{
+    content: "\e609";
+}
+
+.ico-Back-arrow:before
+{
+    content: "\e60a";
+}
+
+.ico-archive-insider:before
+{
+    content: "\e60b";
+}
+
+.ico-archive:before
+{
+    content: "\e60c";
+}
+
+.ico-plus-white:before
+{
+    content: "\e60d";
+}
+
+.ico-plus-gray:before
+{
+    content: "\e60e";
+}
+
+.ico-plan-a-trip:before
+{
+    content: "\e60f";
+}
+
+.ico-photos:before
+{
+    content: "\e610";
+}
+
+.ico-notes:before
+{
+    content: "\e611";
+}
+
+.ico-my-trip:before
+{
+    content: "\e612";
+}
+
+.ico-location:before
+{
+    content: "\e613";
+}
+
+.ico-list-view:before
+{
+    content: "\e614";
+}
+
+.ico-like:before
+{
+    content: "\e615";
+}
+
+.ico-info:before
+{
+    content: "\e616";
+}
+
+.ico-grid-view:before
+{
+    content: "\e617";
+}
+
+.ico-delete:before
+{
+    content: "\e618";
+}
+
+.ico-print:before
+{
+    content: "\e619";
+}
+
+/*font-icos*/
+header
+{
+    height: 60px;
+    padding: 0px 5px;
+    background: #3478bc;
+}
+
+#simple-menu
+{
+    font-size: 26px;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 22px;
+}
+
+header h1
+{
+    color: #fff;
+    font-size: 20px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+header i
+{
+    color: #fff;
+    font-size: 20px;
+}
+
+    header i.ico-Back-arrow
+    {
+        margin-top: -10px;
+    }
+
+header .pull-right i
+{
+    color: #fff;
+    display: inline-block;
+    margin: 22px 10px 0px 10px;
+}
+
+.content-wrap
+{
+    padding: 0px 5px;
+}
+
+.search-menu
+{
+    margin: 10px 0px 0px 5px;
+}
+
+    .search-menu .btn
+    {
+        border-radius: 0;
+        color: #a6a6a6;
+        width: 20%;
+    }
+
+.search-box
+{
+    position: relative;
+    width: 78%;
+}
+
+    .search-box .ico-search
+    {
+        position: absolute;
+        left: 2%;
+        top: 10%;
+        font-size: 20px;
+        color: #cbcbd1;
+    }
+
+    .search-box input[type="search"]
+    {
+        padding-left: 14%;
+        border-radius: 0;
+        width: 80%;
+    }
+
+ul, ol
+{
+    padding: 0;
+    margin: 0;
+}
+
+.my-trips .thumbnail
+{
+    padding: 0;
+    border: 0px none;
+    border-radius: 0px;
+    background: #fff;
+}
+
+.my-trips .thumbnails li
+{
+    margin-bottom: 2% !important;
+    width: 100%;
+}
+
+.my-trips .thumbnail h3
+{
+    font-size: 13px;
+    margin: 0;
+    padding: 5px 5px 5px 10px;
+    color: #7a7a7a;
+}
+
+.my-trips .thumbnail span .ico-info
+{
+    font-size: 32px;
+    margin-right: 10px;
+    text-align: center;
+    margin-top: 25%;
+    height: 32px;
+    width: 32px;
+    color: #fff;
+    background: #cccccc;
+    border-radius: 50%;
+}
+
+.my-trips .thumbnail .img-wrap
+{
+    position: relative;
+    height: 125px;
+    overflow: hidden;
+}
+
+    .my-trips .thumbnail .img-wrap img
+    {
+        margin-top: -12%;
+        -moz-box-shadow: inset 1px -40px 34px #232324;
+        -webkit-box-shadow: inset 1px -40px 34px #232324;
+    }
+
+.my-trips .thumbnail .img-caption
+{
+    position: absolute;
+    bottom: 0;
+    font-size: 15px;
+    color: #fff;
+    padding: 3%;
+    width: 95%;
+}
+
+    .my-trips .thumbnail .img-caption p
+    {
+        margin-bottom: 0;
+    }
+
+.my-trips.grid-view .thumbnail .img-wrap
+{
+    position: relative;
+    height: 200px;
+}
+
+    .my-trips.grid-view .thumbnail .img-wrap img
+    {
+        margin-top: 0;
+        height: 100%;
+        -moz-box-shadow: inset 1px -40px 34px #232324;
+        -webkit-box-shadow: inset 1px -40px 34px #232324;
+    }
+
+.my-trips.grid-view .thumbnail h3
+{
+    padding: 5px;
+}
+
+.my-trips.grid-view .thumbnail span .ico-info
+{
+    font-size: 26px;
+    margin-right: 6px;
+    text-align: center;
+    margin-top: 35%;
+    height: 25px;
+    width: 25px;
+    color: #fff;
+    background: #cccccc;
+    border-radius: 50%;
+}
+
+.my-trips.grid-view ul
+{
+    margin-left: -1.85%;
+}
+
+    .my-trips.grid-view ul li:first-child
+    {
+        margin-left: 1.85%;
+    }
+
+    .my-trips.grid-view ul li
+    {
+        float: left;
+        width: 48%;
+        margin-bottom: 1.85%;
+        margin-left: 1.85%;
+    }
+
+.scroll-menu
+{
+    width: 320px;
+    padding-top: 8px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 70px;
+    background: #fefefe;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #d5d5d5;
+}
+
+    .scroll-menu ul
+    {
+        width: 750px;
+    }
+
+        .scroll-menu ul li
+        {
+            float: left;
+            width: 70px;
+            text-align: center;
+            list-style: none;
+        }
+
+            .scroll-menu ul li:first-child
+            {
+                margin-left: 0;
+            }
+
+            .scroll-menu ul li a
+            {
+                font-size: 9px;
+                font-weight: bold;
+                color: #666;
+                text-decoration: none;
+            }
+
+                .scroll-menu ul li a i, .trip-list-detail .trip-heading a i
+                {
+                    font-size: 30px;
+                    background: #b2b2b2;
+                    color: #fff;
+                    padding: 10%;
+                    border-radius: 50%;
+                }
+
+                .scroll-menu ul li a i
+                {
+                    font-size: 30px;
+                    background: #b2b2b2;
+                    color: #fff;
+                    padding: 10%;
+                    height: 30px;
+                    margin: 0 auto;
+                    width: 30px;
+                    display: block;
+                }
+
+                .scroll-menu ul li a:hover i, .trip-list-detail a:hover i
+                {
+                    background: #3478bc;
+                }
+
+.trip-list-detail .trip-heading a
+{
+    /*margin-right: 5%;*/
+}
+
+.trip-list-detail
+{
+    padding: 10px 8px 0px 8px;
+    background: #fefefe;
+    margin: 2% 3%;
+}
+
+.my-trips.trip-details .thumbnails li
+{
+    margin-bottom: 0 !important;
+}
+
+.trip-detail-info
+{
+    width: 70%;
+    margin-left: 10px;
+}
+
+.trip-icon
+{
+}
+
+.trip-list-detail h2
+{
+    font-size: 13px;
+    line-height: 17px;
+    color: #666;
+    margin: 0px 0 0 0px;
+}
+
+.trip-heading
+{
+    margin-bottom: 10px;
+}
+
+    .trip-heading .trip-icon.users
+    {
+        width: 35px;
+        height: 35px;
+    }
+
+        .trip-heading .trip-icon.users img
+        {
+            border-radius: 12%;
+        }
+
+.trip-list-detail img
+{
+    margin-bottom: 3%;
+}
+
+.trip-list-detail h3
+{
+    font-size: 11px;
+    line-height: 15px;
+    color: #666;
+    margin: 0px 0px 10px 0px;
+}
+
+.trip-list-detail p
+{
+    font-size: 10px;
+    margin: 0;
+    color: #999999;
+    line-height: 15px;
+}
+
+header .trip-edit a.option-edit
+{
+    font-size: 30px;
+    line-height: 10px;
+    color: #fff;
+    margin-top: 24px;
+    display: block;
+    text-decoration: none;
+}
+
+.social-buttons
+{
+    background: #e5e5e5;
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 5px 0px;
+    margin: 0px -8px;
+}
+
+    .social-buttons ul li
+    {
+        float: left;
+        width: 33%;
+        text-align: center;
+        list-style: none;
+    }
+
+        .social-buttons ul li a
+        {
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 16px;
+            color: #666;
+        }
+
+            .social-buttons ul li a i
+            {
+                font-size: 20px;
+                margin-right: 3px;
+                color: #999999;
+            }
+
+.trip-edit a.option-edit
+{
+    font-size: 25px;
+    /*line-height: 10px;*/
+    color: #666666;
+    text-decoration: none;
+}
+
+.dropdown-menu.edit-menu > li > i
+{
+    color: #999;
+    margin: 0;
+}
+
+.dropdown-menu.edit-menu > li > a
+{
+    display: inline-block;
+    padding: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+    .dropdown-menu.edit-menu > li > a:hover
+    {
+        background: none;
+        color: #666;
+    }
+
+.dropdown-menu.edit-menu
+{
+    min-width: 100px;
+    border-radius: 0;
+    padding: 5px;
+}
+
+.icon_preloader_small
+{
+    background: url(../images/preloader.gif) left top no-repeat;
+    width: 90px;
+    height: 90px;
+    margin-top: 25%;
+    margin-left: 50%;
+}

@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>My Rovia Trips</title>
+
+    <link rel="stylesheet" href="../Resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../Resources/css/jquery.sidr.dark.css" />
+    <link rel="stylesheet" href="../Resources/css/style.css" />
+    <script src="../Resources/AppacitiveSDK.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>-->
+    <script src="../Resources/js/bootstrap.min.js"></script>
+    <script src="../Resources/js/jquery.sidr.min.js"></script>
+    <script src="../Resources/Utility.js"></script>
+    <script src="../Resources/Handlebars/Handlebars.js"></script>
+    <script src="../Resources/Handlebars/HandlebarExtension.js"></script>
+    <script src="js/Model.js"></script>
+    <script src="js/Controller.js"></script>
+    <script src="js/MainView.js"></script>
+    <script src="js/Start.js"></script>
+
+</head>
+<body>
+    <script>
+        if (Appacitive) {
+            console.log('Appacitive loaded!')
+        } else {
+            console.log('SDK did not load, verify you included jquery and the sdk file properly.');
+        }
+    </script>
+
+    <div class="page-wrapper">
+        <header id="header">
+        </header>
+        <div class="content-wrap">
+            <div id="sideBar">
+            </div>
+            <div id="middleLayer">
+            </div>
+            <div id="body">
+                <div class="icon_preloader_small jPreloader"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script id="tmpl_HomeListView" type="text/html">
+        {{#each .}}
+        <li>
+            <a href="#" class="thumbnail jTrip" id="{{this.__id}}">
+                <div class="img-wrap">
+                    <img src="{{this.photo}}" alt="">
+                    <div class="img-caption">
+                        <strong>{{this.name}}</strong>
+                        {{this.start_date}} - {{this.end_date}}
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <h3 class="pull-left">{{this.location}}</h3>
+                    <span class="pull-right"><i class="ico-info"></i></span>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </script>
+
+    <script id="tmpl_HomeGridView" type="text/html">
+        {{#each .}}
+                    <li>
+                        <a href="#" class="thumbnail jTrip" id="{{this.__id}}">
+                            <div class="img-wrap">
+                                <img src="{{this.photo}}" alt="" />
+                                <div class="img-caption">
+                                    <p><strong>{{this.name}}</strong></p>
+                                    <p>{{this.start_date}} - {{this.end_date}}</p>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <h3 class="pull-left">{{this.location}}</h3>
+                                <span class="pull-right"><i class="ico-info"></i></span>
+                            </div>
+                        </a>
+                    </li>
+        {{/each}}
+    </script>
+
+    <script id="tmpl_HomeHeader" type="text/html">
+        <a id="simple-menu" href="#sidr">&#9776;</a>
+        <h1>My Trips</h1>
+        <div class="pull-right">
+            <a href="#" id="jGridView"><i class="ico-grid-view"></i></a>
+            <a href="#"><i class="ico-plus-white"></i></a>
+        </div>
+    </script>
+
+    <script id="tmpl_MiddleLayer" type="text/html">
+        <div class="row-fluid">
+            <div class="span12 search-menu clearfix">
+
+                <div class="search-box pull-left">
+                    <a href="#" id="jGridView"><i class="ico-search "></i></a>
+                    <input type="search" placeholder="Search all trips">
+                </div>
+
+                <input type="button" class="btn pull-right" value="Sort">
+            </div>
+        </div>
+    </script>
+    <script id="tmpl_HomeBody" type="text/html">
+        <div class="row-fluid">
+            <div class="my-trips view-list">
+
+                <!--<images src="images/images-zac.jpg" alt="zac">-->
+
+                <ul class="thumbnails jLVTripHolder">
+                </ul>
+
+            </div>
+            <div class="my-trips grid-view">
+
+                <!--<images src="images/images-zac.jpg" alt="zac">-->
+                <ul class="thumbnails clearfix jGVTripHolder" style="display: none;">
+                </ul>
+
+            </div>
+        </div>
+    </script>
+    <script id="tmpl_HomeSideBar" type="text/html">
+        <div id="sidr">
+            <div class="slidemenu">
+
+                <div id="profile">
+                    <div class="profile-img">
+                        <img src="../Resources/images/img-jason.png"><span class="badge badge-important">99</span>
+                    </div>
+                    <div class="profile_info"><strong>{{this.firstname}} {{this.lastname}}</strong></div>
+                </div>
+
+                <div class="trip-menu">
+                    <ul class="clearfix">
+                        <li><a href="">My Trips</a>12</li>
+                        <li><a href="">Journals</a>4</li>
+                        <li><a href="">Friends</a>32</li>
+                    </ul>
+                </div>
+
+                <ul class="main-menu">
+                    <li><a href="#"><i class="ico-plan-a-trip"></i>Plan a Trip</a></li>
+                    <li><a href="#"><i class="ico-my-trip"></i>Ongoing Trips</a></li>
+                    <li><a href="#"><i class="ico-archive"></i>Saved Trips</a></li>
+                    <li><a href="#"><i class="ico-settings"></i>Settings</a></li>
+                </ul>
+                <input type="button" class="btn btn-logout" value="Logout">
+            </div>
+        </div>
+    </script>
+
+    <script id="details_Header_Tmpl" type="text/html">
+        <a href="javascript:void(0);" class="jsBack"><i class="ico-Back-arrow"></i></a>
+        <h1>Up in the Andes...</h1>
+        <div class="pull-right dropdown trip-edit">
+            <a class="dropdown-toggle option-edit" data-toggle="dropdown" href="#">&#8942;</a>
+            <ul class="dropdown-menu edit-menu">
+                <li><i class="ico-archive-insider"></i><a href="javascript:void(0);" class="jsArchive">Archive</a></li>
+                <li><i class="ico-delete"></i><a href="javascript:void(0);" class="jsDelete">Delete</a></li>
+            </ul>
+        </div>
+        
+
+    </script>
+    
+    
+    <script type="text/html">
+        
+        
+
+        
+
+    </script>
+
+</body>
+</html>
