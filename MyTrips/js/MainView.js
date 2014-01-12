@@ -159,7 +159,7 @@ MyTrips.MainView = function (controller) {
         } else {
             _view.controls.init();
             _view.display();
-			$('.jPreloader').hide();
+            $('.jPreloader').hide();
         }
         _view.bind();
 

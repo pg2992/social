@@ -67,8 +67,8 @@
     margin-right: 8px;
 }
 
-.sidr ul li a:hover, .sidr ul li a:active {
-    color: #2d5c8d;
+.sidr ul li a:hover, .sidr ul li a.active {
+    color: #fff;
 }
 
 

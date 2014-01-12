@@ -57,7 +57,7 @@ MyTrips.GalleryView = function (controller) {
     };
 
     controller.event.showGallery.attach(function (src, data) {
-	controller.model.currentPage = data;
+        controller.model.currentPage = data;
         if (data === "showGallery") {
             _template.init();
             _view.controls.init();

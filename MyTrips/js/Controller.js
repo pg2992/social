@@ -88,6 +88,9 @@ MyTrips.Controller = function (model) {
                     //_self._helper.getPostType(posts);
                     _self.event.postLoaded.notify(_self._helper.getPostType(posts));
                     _self.model.isPageEnd = false;
+                } else {
+
+                    onGetImageSuccess();
                 }
 
                 //onGetImageSuccess(posts);

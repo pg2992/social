@@ -429,9 +429,8 @@ header .trip-edit a.option-edit {
     padding: 5px;
 }
 .bgImage {
-    background-image:url(../images/background.jpg);
+    background-image: url(../images/background.jpg);
 }
-
 .icon_preloader_small
 {
     background: url(../images/loaderbar.gif) left top repeat-x;

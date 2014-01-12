@@ -82,12 +82,10 @@ MyTrips.DetailsView = function (controller) {
                 var post = _helper.getPostForImage(response.getObject());
                 _view.displayBodyHolder(post);
                 _view.controls.init();
-                $('.jPreloader').hide();
-                $('.jpageEndPreloader').hide();
-            } else {
-				$('.jPreloader').hide();
-                $('.jpageEndPreloader').hide();
-            }
+               
+            } 
+            $('.jPreloader').hide();
+            $('.jpageEndPreloader').hide();
         }
     };
 
