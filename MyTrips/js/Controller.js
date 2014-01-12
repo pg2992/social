@@ -12,7 +12,8 @@ MyTrips.Controller = function (model) {
         pageEnd: new UIEvent(this),
         loadTripDetails: new UIEvent(this),
         showGallery: new UIEvent(this),
-        postLoaded: new UIEvent(this)
+        postLoaded: new UIEvent(this),
+        logoutEvent: new UIEvent(this)
     };
     _self.model = model;
 
@@ -25,17 +26,18 @@ MyTrips.Controller = function (model) {
                 relation: 'collaborators',
                 returnEdge: true,
                 label: 'trip',
-                pageSize: _self.model.pageModel.pageSize,
+                pageSize: _self.model.tripsPageModel.pageSize,
                 orderby: '__utcdatecreated'
             });
 
             var successHandler = function (trips) {
-                _self.model.pageModel.totalItems = trips.total;
-                _self.model.pageModel.isLastPage = trips.isLastPage;
+                _self.model.tripsPageModel.totalItems = trips.total;
+                _self.model.tripsPageModel.isLastPage = trips.isLastPage;
+                _self.model.isPageEnd = false;
                 successCallBack(trips);
             };
-            _self.event.pageEnd.attach(function () {
-                if (!_self.model.trips.isLastPage) {
+            _self.event.pageEnd.attach(function (src, data) {
+                if (!_self.model.trips.isLastPage && data === 'mainView') {
                     query.fetchNext().then(successHandler);
                 }
             });
@@ -67,7 +69,7 @@ MyTrips.Controller = function (model) {
                 });
         },
 
-        getPostForTrip: function (callback) {
+        getPostForTrip: function (onGetImageSuccess) {
             var tripId = _self.model.currentTrip.__id;
             var trip = new Appacitive.Object({ __type: 'trip', __id: tripId });
 
@@ -75,17 +77,31 @@ MyTrips.Controller = function (model) {
                 relation: 'posts',
                 returnEdge: false,
                 label: 'post',
-                pageSize: 5,
+                pageSize: _self.model.postsPageModel.pageSize,
                 orderBy: '__utcdatecreated'
             });
 
-            query.fetch().then(function (posts) {
-                console.log(posts);
+            var successHandler = function (posts) {
+                _self.model.postsPageModel.totalItems = posts.total;
+                _self.model.postsPageModel.isLastPage = posts.isLastPage;
                 if (posts && posts.length > 0) {
-                    _self.model.posts = _self._helper.getPostType(posts);
-                    _self.event.postLoaded.notify();
+                    //_self._helper.getPostType(posts);
+                    _self.event.postLoaded.notify(_self._helper.getPostType(posts));
+                    _self.model.isPageEnd = false;
                 }
-            },
+
+                //onGetImageSuccess(posts);
+            };
+
+            _self.event.pageEnd.attach(function (src, data) {
+                if (!_self.model.postsPageModel.isLastPage && data === 'detailsView') {
+                    query.fetchNext().then(successHandler);
+                } else {
+
+                    onGetImageSuccess();
+                }
+            });
+            query.fetch().then(successHandler,
                 function (error) {
                     console.log(errors);
                 });
@@ -118,7 +134,7 @@ MyTrips.Controller = function (model) {
                 relation: 'photos',
                 returnEdge: false,
                 label: 'photo',
-                pageSize: _self.model.pageModel.pageSize,
+                pageSize: _self.model.tripsPageModel.pageSize,
                 orderby: '__utcdatecreated'
             });
 
@@ -144,7 +160,7 @@ MyTrips.Controller = function (model) {
                 id: photoId,
                 fields: ['title', 'url', 'thumb_url', 'geocode']
             }).then(function (obj) {
-                console.log(obj);
+                //console.log(obj);
                 onGetImageSuccess(obj);
             },
                 function () {
@@ -181,6 +197,7 @@ MyTrips.Controller = function (model) {
                 post.createdBy = obj.__createdby;
                 post.duration = _self._helper.getDuration(Date.parse(post.createdDate));
                 post.url = "";
+                _self.model.posts.push(post);
                 postArray.push(post);
             }
             return postArray;
@@ -216,9 +233,3 @@ MyTrips.Controller = function (model) {
     };
 };
 
-MyTrips.Controller.prototype = {
-
-    _defOptions: {
-
-    }
-}

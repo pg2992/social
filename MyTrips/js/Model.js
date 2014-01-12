@@ -6,6 +6,8 @@ MyTrips.Model = function (authResult) {
         listOfTrips: []
     };
 
+    this.currentPage = '';
+
     this.posts = [];
 
     this.post = function () {
@@ -21,11 +23,15 @@ MyTrips.Model = function (authResult) {
 
     this.user = null;//authResult.user.getObject();
 
-    this.pageModel = { currentPage: 0, pageSize: 10, totalItems: 0, totalFilterItems: 0, isLastPage: false };
+    this.tripsPageModel = { currentPage: 0, pageSize: 1, totalItems: 0, totalFilterItems: 0, isLastPage: false };
+
+    this.postsPageModel = { currentPage: 0, pageSize: 1, totalItems: 0, totalFilterItems: 0, isLastPage: false };
 
     this.currentTrip = {
         trip: null
     };
+
+    this.isPageEnd = false;
 };
 
 

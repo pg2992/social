@@ -62,6 +62,7 @@ MyTrips.LoginView = function (controller) {
         onAuth: function (response) {
 
             if (response) {
+                $('body').removeClass("bgImage");
                 controller.model.user = response.user.getObject();
                 initApp();
             } else {
@@ -70,6 +71,14 @@ MyTrips.LoginView = function (controller) {
             }
         }
     };
+    controller.event.logoutEvent.attach(function (src, data) {
+        if (data === "loginview") {
+            $('body').addClass("bgImage");
+            _template.init();
+            _view.placeHolders.init();
+            _view.display();
+        }
+    });
 
     _template.init();
     _view.placeHolders.init();

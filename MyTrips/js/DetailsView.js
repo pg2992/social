@@ -30,10 +30,10 @@ MyTrips.DetailsView = function (controller) {
 
         controls: {
             showGallery: null,
-            btnBack:null,
+            btnBack: null,
             init: function () {
                 _view.controls.showGallery = $(".jsShowGallery");
-                
+
             }
         },
 
@@ -47,7 +47,7 @@ MyTrips.DetailsView = function (controller) {
             var html = _template.tmpl_detailsHeader(controller.model.currentTrip);
             _view.placeHolders.headerHolder.html(html);
             _view.controls.btnBack = $(".jsBack");
-            _view.controls.btnBack.click(function() {
+            _view.controls.btnBack.click(function () {
                 controller.event.pageRendered.notify("mainView");
             });
         },
@@ -82,7 +82,10 @@ MyTrips.DetailsView = function (controller) {
                 var post = _helper.getPostForImage(response.getObject());
                 _view.displayBodyHolder(post);
                 _view.controls.init();
-                
+                $('.jPreloader').hide();
+                $('.jpageEndPreloader').hide();
+            } else {
+                $('.jpageEndPreloader').hide();
             }
         }
     };
@@ -105,14 +108,12 @@ MyTrips.DetailsView = function (controller) {
             _view.placeHolders.middleLayerHolder.html('');
             _view.placeHolders.bodyHolder.html('');
         }
-
-
     };
 
     controller.event.loadTripDetails.attach(function (src, data) {
 
         if (data && data === "detailsView") {
-
+            controller.model.currentPage = data;
             $('.jPreloader').show();
             _template.init();
             _view.placeHolders.init();
@@ -121,26 +122,31 @@ MyTrips.DetailsView = function (controller) {
             _view.displayMiddleLayerHolder();
             _view.controls.init();
             _view.bind();
-            //var tripId = controller.model.currentTrip.id;
-
-            controller.connector.getPostForTrip();
+            controller.connector.getPostForTrip(_view.onGetImageSuccess);
         }
     });
 
 
-    controller.event.postLoaded.attach(function (src) {
+    controller.event.postLoaded.attach(function (src, data) {
+        if (data) {
+            for (var i = 0; i < data.length; i++) {
 
-        var modelPosts = controller.model.posts;
-
-        if (modelPosts) {
-
-            for (var i = 0; i < modelPosts.length; i++) {
-
-                if (modelPosts[i].type === "photo") {
-                    controller.connector.getImagesForPost(modelPosts[i].targetId, _view.onGetImageSuccess);
+                if (data[i].type === "photo") {
+                    controller.connector.getImagesForPost(data[i].targetId, _view.onGetImageSuccess);
                 }
             }
+        }
+        $('.jpageEndPreloader').hide();
+    });
 
+    $(window).scroll(function () {
+        if (!controller.model.isPageEnd) {
+
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                controller.model.isPageEnd = true;
+                $('.jpageEndPreloader').show();
+                controller.event.pageEnd.notify(controller.model.currentPage);
+            }
         }
     });
 

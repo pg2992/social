@@ -72,13 +72,10 @@ function initApp() {
     controller.event.pageRendered.notify();
 }
 
-//function logoutFacebook() {
-//    Appacitive.Users.logout(true).then(function () {
-//        FB.logout(function (response) {
-//            alert("Logout Successfully...");
-//            //For logout we are refreshing page
-//            window.location.reload();
-//        });
-//    });
-
-//}
+function logoutApp() {
+    $("#simple-menu").click();
+    Appacitive.Users.logout(true).then(function () {
+        //window.location.reload();
+        controller.event.logoutEvent.notify("loginview");
+    });
+}

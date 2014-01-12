@@ -95,28 +95,29 @@ MyTrips.MainView = function (controller) {
     }
 
     var _helper = {
-        successCallBack: function (trips) {
+        successCallBack: function(trips) {
             var tripTemplateObj = _helper.converToTemplateObj(trips);
             _view.init();
             _view.controls.init();
             _view.display(tripTemplateObj);
             _view.controls.preLoader.hide();
+            $('.jpageEndPreloader').hide();
             _view.controls.init();
             //controller.event.resultLoaded.notify();
             _helper.bindClickToTrip(tripTemplateObj);
         },
-        bindClickToTrip: function (trips) {
+        bindClickToTrip: function(trips) {
             for (var i = 0; i < trips.length; i++) {
                 var id = "#" + trips[i].__id;
-                _view.controls.listViewHolder.on("click", id, function () {
+                _view.controls.listViewHolder.on("click", id, function() {
                     _helper.saveCurrentTrip($(this).attr('id'));
                     controller.event.loadTripDetails.notify("detailsView");
                 });
             }
         },
-        converToTemplateObj: function (trips) {
+        converToTemplateObj: function(trips) {
             var tripArray = [];
-            for (var i = 0; i < trips.length ; i++) {
+            for (var i = 0; i < trips.length; i++) {
                 tripArray[i] = trips[i].getObject();
                 tripArray[i].start_date = _helper.getDisplayDate(tripArray[i].start_date);
                 tripArray[i].end_date = _helper.getDisplayDate(tripArray[i].end_date);
@@ -124,11 +125,12 @@ MyTrips.MainView = function (controller) {
             }
             return tripArray;
         },
-        getDisplayDate: function (date) {
-            var dt = new Date(Date.parse(date));
-            return dt.toDateString();
+        getDisplayDate: function(date) {
+            var dt = date.split('-');
+            var dt1 = new Date( dt[0], dt[1],dt[2].substr(0, 2)).toDateString()
+            return dt1.substring(4);
         },
-        saveCurrentTrip: function (id) {
+        saveCurrentTrip: function(id) {
             var trips = controller.model.trips.listOfTrips;
             for (var i = 0; i < trips.length; i++) {
                 if (trips[i].__id === id) {
@@ -138,34 +140,38 @@ MyTrips.MainView = function (controller) {
         }
 
 
-    }
+    };
 
-    controller.event.pageRendered.attach(function(src, data) {
+    controller.event.pageRendered.attach(function (src, data) {
 
         _view.init();
+
+        controller.model.currentPage = "mainView";
+
         
         _view.displayHeader();
         _view.displayMiddleLayer();
         _view.displaySideBar();
         _view.displayBody();
         if (data !== "mainView") {
+            $('.jPreloader').show();
             controller.connector.loadTrips(_helper.successCallBack);
         } else {
             _view.controls.init();
             _view.display();
         }
         _view.bind();
-    });
-
-    controller.event.resultLoaded.attach(function () {
 
     });
 
-    $(window).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-            controller.event.pageEnd.notify();
-        }
-    });
+
+    //$(window).scroll(function () {
+    //    if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+
+    //        $('.jpageEndPreloader').show();
+    //        controller.event.pageEnd.notify("mainView");
+    //    }
+    //});
 
 
 
