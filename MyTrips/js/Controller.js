@@ -143,12 +143,6 @@ MyTrips.Controller = function (model) {
             });
 
             query.fetch().then(function (photos) {
-
-            },
-            function () {
-                console.log('error');
-            });
-            query.fetch().then(function (photos) {
                 onSuccessCallback(photos);
             },
             function () {
