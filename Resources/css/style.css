@@ -127,11 +127,12 @@ header {
     background: #3478bc;
 }
 #simple-menu {
-    font-size: 26px;
+    font-size: 30px;
     color: #fff;
+    line-height: 35px;
     text-decoration: none;
     display: inline-block;
-    margin-top: 22px;
+    margin-top: 12px;
 }
 header h1{
     color: #fff;
@@ -154,6 +155,48 @@ header .pull-right i {
 }
 .content-wrap {
     padding: 0px 5px;
+}
+.content-wrap.login {
+    background: #3478bc !important;
+    height: 100%;
+}
+.content-wrap.login .logo-login a{
+    background: url("../images/logo-rovia.png");
+    margin: 20px auto;
+    width: 140px;
+    height: 65px;
+    display: block;
+}
+.content-wrap.login .user-login-form  {
+    margin: 20px auto;
+}
+.content-wrap.login .user-login-form input[type="text"] {
+    height: 35px;
+    width: 90%;
+    border-radius: 0;
+}
+.content-wrap.login .frgt-pswd a {
+    margin: 0px 0px 10px 0px;
+    font-size: 15px;
+    display: block;
+    color: #c7c7cd;
+}
+.btn-login {
+    background: #79a837;
+    padding: 10px 0px;
+    width: 50% !important;
+    text-align: center;
+    color: #fff;
+    border-radius: 0;
+    display: block;
+    margin: 0 auto 5% auto;
+    border: 0px none;
+    box-shadow: none;
+    text-shadow: none;
+}
+.btn-login:hover {
+    background: #79a837;
+    color: #fff;
 }
 .search-menu {
     margin:10px 0px 0px 5px ;
@@ -217,7 +260,6 @@ ul, ol {
 }
 .my-trips .thumbnail .img-wrap img {
     margin-top: -12%;
-
 }
 .my-trips .thumbnail .img-caption {
     position: absolute;
@@ -226,8 +268,8 @@ ul, ol {
     color: #fff;
     padding:3%;
     width:95%;
-    /*-moz-box-shadow: inset 1px -26px 46px #232324;*/
-    /*-webkit-box-shadow: inset 1px -26px 46px #232324;*/
+    -moz-box-shadow: inset 1px -26px 46px #232324!important;
+    -webkit-box-shadow: inset 1px -26px 46px #232324 !important;
 
 }
 .my-trips .thumbnail .img-caption p {
@@ -282,7 +324,7 @@ ul, ol {
     border-bottom: 1px solid #d5d5d5;
 }
 .scroll-menu ul {
-    width: 750px;
+    width: 560px;
 }
 .scroll-menu ul li {
     float: left;
@@ -402,6 +444,9 @@ header .trip-edit a.option-edit {
     margin-right: 3px;
     color: #999999;
 }
+.social-buttons ul li a:hover i{
+    background: transparent;
+}
 .trip-edit a.option-edit{
     font-size: 25px;
     /*line-height: 10px;*/
@@ -427,9 +472,6 @@ header .trip-edit a.option-edit {
     min-width: 100px;
     border-radius: 0;
     padding: 5px;
-}
-.bgImage {
-    background-image: url(../images/background.jpg);
 }
 .icon_preloader_small
 {

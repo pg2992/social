@@ -111,7 +111,7 @@ MyTrips.MainView = function (controller) {
                 var id = "#" + trips[i].__id;
                 _view.controls.listViewHolder.on("click", id, function() {
                     _helper.saveCurrentTrip($(this).attr('id'));
-                    controller.event.loadTripDetails.notify("detailsView");
+                    controller.event.loadTripDetails.notify({rec:"detailsView",sender:"mainView"});
                 });
             }
         },

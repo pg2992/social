@@ -38,9 +38,8 @@ MyTrips.DetailsView = function (controller) {
         },
 
         display: function () {
-            _view.placeHolders.headerHolder.html(_template.tmpl_detailsHeader);
-            _view.placeHolders.middleLayerHolder.html(_template.tmpl_detailsMiddleLayer);
-            _view.placeHolders.bodyHolder.html(_template.tmpl_details_body);
+            var html = _template.tmpl_details_body(controller.model.posts);
+            _view.placeHolders.bodyHolder.append(html);
         },
 
         displayHeader: function () {
@@ -58,8 +57,7 @@ MyTrips.DetailsView = function (controller) {
         },
 
         displayBodyHolder: function (post) {
-
-            var html = _template.tmpl_details_body(post);
+			var html = _template.tmpl_details_body([post]);
             _view.placeHolders.bodyHolder.append(html);
 
         },
@@ -70,12 +68,7 @@ MyTrips.DetailsView = function (controller) {
                 controller.event.showGallery.notify("showGallery");
             });
         },
-
-        onTripPostsSucess: function (response) {
-            _view.display();
-            _view.controls.init();
-
-        },
+      
 
         onGetImageSuccess: function (response) {
             if (response) {
@@ -111,7 +104,7 @@ MyTrips.DetailsView = function (controller) {
 
     controller.event.loadTripDetails.attach(function (src, data) {
 
-        if (data && data === "detailsView") {
+        if (data && data.rec === "detailsView") {
             controller.model.currentPage = data;
             $('.jPreloader').show();
             _template.init();
@@ -121,7 +114,12 @@ MyTrips.DetailsView = function (controller) {
             _view.displayMiddleLayerHolder();
             _view.controls.init();
             _view.bind();
+			if(data.sender === "galleryView"){
+				$('.jPreloader').hide();
+				_view.display();
+			}else{
             controller.connector.getPostForTrip(_view.onGetImageSuccess);
+			}
         }
     });
 

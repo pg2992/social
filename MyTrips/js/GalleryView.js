@@ -30,7 +30,7 @@ MyTrips.GalleryView = function (controller) {
             _view.controls.middleLayerHolder.html("");
             _view.controls.backDetailsView = $(".jsBackToDetailsView");
             _view.controls.backDetailsView.click(function () {
-                controller.event.loadTripDetails.notify("detailsView");
+                controller.event.loadTripDetails.notify({rec:"detailsView",sender:"galleryView"});
             });
         },
 
