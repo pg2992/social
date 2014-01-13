@@ -130,12 +130,13 @@ header {
     background: #3478bc;
 }
 #simple-menu {
-    font-size: 30px;
-    color: #fff;
-    line-height: 35px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 12px;
+    position: absolute;
+	font-size: 30px;
+	color: white;
+	line-height: 35px;
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 12px;
 }
 header h1{
     color: white;
