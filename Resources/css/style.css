@@ -164,7 +164,8 @@ header .pull-right i {
     margin:22px 10px 0px 10px;
 }
 .content-wrap {
-    padding: 0px 5px;
+    padding: 0px 1.5%;
+    width: 97%;
 }
 body.login {
     background: #3478bc !important;
@@ -394,9 +395,11 @@ ul, ol {
     /*margin-right: 5%;*/
 }
 .trip-list-detail {
-    padding: 10px 8px 0px 8px;
+    padding: 10px 2% 0px 2%;
     background: #fefefe;
     margin:2% 3%
+;
+    width: 90%;
 }
 .my-trips.trip-details .thumbnails li {
     margin-bottom: 0 !important;
