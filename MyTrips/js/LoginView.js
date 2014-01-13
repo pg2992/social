@@ -14,10 +14,12 @@ MyTrips.LoginView = function (controller) {
             headerHolder: null,
             bodyHolder: null,
             middleLayerHolder: null,
+			loginHolder:null,
             init: function () {
                 _view.placeHolders.headerHolder = $("#header");
                 _view.placeHolders.middleLayerHolder = $("#middleLayer");
                 _view.placeHolders.bodyHolder = $("#body");
+				_view.placeHolders.loginHolder = $("#loginView");
             }
         },
 
@@ -26,14 +28,14 @@ MyTrips.LoginView = function (controller) {
             dvError: null,
             init: function () {
                 _view.controls.btnLogin = $(".jsLogin");
-                _view.controls.dvError = $(".jsError");
             }
         },
 
         display: function () {
 
-            _view.placeHolders.headerHolder.html('<h1>Login</h1>');
-            _view.placeHolders.middleLayerHolder.html(_template.tmpl_LoginView);
+            _view.placeHolders.headerHolder.html('');
+            _view.placeHolders.middleLayerHolder.html('');
+			_view.placeHolders.loginHolder.html(_template.tmpl_LoginView);
             _view.placeHolders.bodyHolder.html('');
             _view.controls.init();
             _view.bind();
@@ -47,8 +49,8 @@ MyTrips.LoginView = function (controller) {
 
                 var request = {
 
-                    username: $('#inputUsername').val(),
-                    password: $('#inputPassword').val()
+                    username: $('.username').val(),
+                    password: $('.password').val()
 
                 };
 
@@ -62,7 +64,9 @@ MyTrips.LoginView = function (controller) {
         onAuth: function (response) {
 
             if (response) {
+				$("body").removeClass("login");
                 controller.model.user = response.user.getObject();
+				_view.placeHolders.loginHolder.html('');
                 initApp();
             } else {
                 

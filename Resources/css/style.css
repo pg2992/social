@@ -119,6 +119,9 @@ body {
 .ico-print:before {
     content: "\e619";
 }
+.icon-ico-user:before {
+    content: "\e600";
+}
 
 /*font-icos*/
 header {
@@ -127,7 +130,6 @@ header {
     background: #3478bc;
 }
 #simple-menu {
-    position:absolute;
     font-size: 30px;
     color: #fff;
     line-height: 35px;
@@ -136,15 +138,15 @@ header {
     margin-top: 12px;
 }
 header h1{
-    color: #fff;
-    font-size: 20px;
-    margin-left: 40px;
-    display: inline-block;
-    text-overflow: ellipsis;
-    width: 70%;
-    word-wrap: initial;
-    overflow-x: hidden;
-    white-space: nowrap;
+    color: white;
+	font-size: 20px;
+	margin-left: 40px;
+	display: inline-block;
+	text-overflow: ellipsis;
+	width: 70%;
+	word-wrap: initial;
+	overflow-x: hidden;
+	white-space: nowrap;
 }
 header i {
     color: #fff;
@@ -152,11 +154,10 @@ header i {
 }
 header i.ico-Back-arrow {
     position: absolute;
-    top: 30px;
-    margin-top: -10px;
+	top: 30px;
+	margin-top: -10px;
 }
 header .pull-right i {
-
     color: #fff;
     display: inline-block;
     margin:22px 10px 0px 10px;
@@ -164,8 +165,12 @@ header .pull-right i {
 .content-wrap {
     padding: 0px 5px;
 }
+body.login {
+    background: #3478bc !important;
+}
 .content-wrap.login {
     background: #3478bc !important;
+    padding-bottom:2%;
     height: 100%;
 }
 .content-wrap.login .logo-login a{
@@ -178,10 +183,18 @@ header .pull-right i {
 .content-wrap.login .user-login-form  {
     margin: 20px auto;
 }
-.content-wrap.login .user-login-form input[type="text"] {
+.content-wrap.login .user-login-form input[type="text"], .content-wrap.login .user-login-form input[type="password"] {
     height: 35px;
-    width: 90%;
+    width: 70%;
     border-radius: 0;
+}
+.content-wrap.login .user-login-form input[type="text"].username {
+    background:#fff  url("../images/ico-user.png") 0.5% 50% no-repeat;
+    padding-left: 15%;
+}
+.content-wrap.login .user-login-form input[type="password"].password {
+    background:#fff  url("../images/ico-pswd.png") 0.5% 50% no-repeat;
+    padding-left: 15%;
 }
 .content-wrap.login .frgt-pswd a {
     margin: 0px 0px 10px 0px;
@@ -276,8 +289,14 @@ ul, ol {
     color: #fff;
     padding:3%;
     width:95%;
-    -moz-box-shadow: inset 1px -26px 46px #232324!important;
-    -webkit-box-shadow: inset 1px -26px 46px #232324 !important;
+    /*-moz-box-shadow: inset 1px -26px 46px #232324 !important;*/
+    /*-webkit-box-shadow: inset 1px -26px 46px #232324 !important;*/
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C */
 
 }
 .my-trips .thumbnail .img-caption p {

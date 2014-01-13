@@ -35,7 +35,7 @@
     <script src="MyTrips/js/LoginView.js"></script>
 
 </head>
-<body>
+<body class="login">
     <script>
         if (Appacitive) {
             console.log('Appacitive loaded!')
@@ -45,27 +45,27 @@
     </script>
 
     <div class="page-wrapper">
+	<div id="loginView">
+			</div>
         <header id="header">
-            <!--<div class="btnLogin" style="text-align: center; padding-top: 15px;">
-                    <button class="btn btn-primary" onclick="initFacebook();">Connect with Facebook</button>
-                </div>-->
-
-
+            
         </header>
         <div class="icon_preloader_small jPreloader hide"></div>
         <div id="middleLayer">
         </div>
+		
         <div class="content-wrap">
-            <div id="sideBar">
+			
+		<div id="sideBar">
             </div>
             
-            <div id="body">
-
+            <div id="body" >
                 
             </div>
             <div>
                 <div class="icon_pageEndloader jpageEndPreloader hide"></div>
             </div>
+			
         </div>
     </div>
 
@@ -305,29 +305,37 @@
 
     </script>
     <script id="loginTemplate" type="text/html">
-        <div style="text-align: center; padding-top: 50px;">
-            <div class="control-group">
-                <!--<label class="control-label" for="userName">Username</label>-->
-                <div class="controls">
-                    <input type="text" id="inputUsername" placeholder="UserName">
+	<div class="content-wrap login">
+            <div class="row-fluid">
+                <div class="logo-login">
+                    <a href="#"></a>
                 </div>
             </div>
-            <div class="control-group">
-                <!-- <label class="control-label" for="inputPassword">Password</label>-->
-                <div class="controls">
-                    <input type="password" id="inputPassword" placeholder="Password">
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <button type="submit" class="btn jsLogin">Sign in</button>
-                </div>
-            </div>
-            <div class="jsError hide" style="color:rgba(255, 0, 0, 0.57)">
-                <a class="close" href="javascript:void(0);">×</a>
-                <p><strong>The username or password you entered is incorrect.</strong></p>
-            </div>
-        </div>
+          <div class="row-fluid">
+              <div class="user-icon pagination-centered">
+                  <img src="Resources/images/icon-uer-login.png" alt="user">
+              </div>
+          </div>
+          <div class="row-fluid">
+          <div class="user-login-form pagination-centered">
+               <input type="text" placeholder="Username" class="username">
+
+
+
+                    <input type="password" placeholder="Password" class="password">
+
+              </div>
+          </div>
+          <div class="row-fluid pagination-centered login-button">
+              <input type="button" class="btn btn-login jsLogin" value="Login">
+          </div>
+          <div class="row-fluid pagination-centered frgt-pswd">
+         <a href="#">Forgot Password?</a>
+          </div>
+      </div>
+      </div>
+      
+		<!-- The username or password you entered is incorrect. -->
     </script>
 	
 </body>
