@@ -519,13 +519,7 @@ header .trip-edit a.option-edit {
 }
 
 .videoPost{
-	width: 100%;
+	width: 550px;
 	height: 200px;
-
 	min-height: 180px;
-}
-@media(max-width:640px){
-	.videoPost{
-		width: 558px;
-	}
 }
