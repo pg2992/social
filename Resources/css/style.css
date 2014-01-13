@@ -524,8 +524,8 @@ header .trip-edit a.option-edit {
 
 	min-height: 180px;
 }
-@media(max-width:480px){
+@media(max-width:640px){
 	.videoPost{
-		width: 276px;
+		width: 558px;
 	}
 }
