@@ -127,6 +127,7 @@ header {
     background: #3478bc;
 }
 #simple-menu {
+    position:absolute;
     font-size: 30px;
     color: #fff;
     line-height: 35px;
@@ -137,14 +138,21 @@ header {
 header h1{
     color: #fff;
     font-size: 20px;
-    margin-left: 30px;
+    margin-left: 40px;
     display: inline-block;
+    text-overflow: ellipsis;
+    width: 70%;
+    word-wrap: initial;
+    overflow-x: hidden;
+    white-space: nowrap;
 }
 header i {
     color: #fff;
     font-size: 20px;
 }
 header i.ico-Back-arrow {
+    position: absolute;
+    top: 30px;
     margin-top: -10px;
 }
 header .pull-right i {
@@ -485,4 +493,10 @@ header .trip-edit a.option-edit {
     width: 15px;
     height: 9px;
     margin-left: 50%;
+}
+.videoPost{
+	width: 100%;
+	height: 200px;
+
+	min-height: 180px;
 }

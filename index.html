@@ -260,8 +260,13 @@
                     </div>
                 </div>
                 <h3>{{this.description}}</h3>
+				{{#equal this.type "photo"}}
                 <img src="{{this.url}}" alt="austria">
-
+				{{/equal}}
+				{{#equal this.type "video"}}
+				<embed class="videoPost" src="{{this.url}}" type="application/x-shockwave-flash">
+</embed>
+				{{/equal}}
                 <div class="social-buttons">
                     <ul class="clearfix">
                         <li><a href="javascript:void(0);"><i class="ico-like"></i>Like</a> </li>

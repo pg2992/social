@@ -167,6 +167,23 @@ MyTrips.Controller = function (model) {
 
 
         },
+		
+		getVideosForPost: function (videoId, onGetVideoSuccess) {
+
+            Appacitive.Object.get({
+                type: 'video',
+                id: videoId,
+                fields: ['title', 'url']
+            }).then(function (obj) {
+                //console.log(obj);
+                onGetVideoSuccess(obj);
+            },
+                function () {
+                    console.log("cannot load the specified trip")
+                });
+
+
+        },
 
         isAuthenticated: function (request, onAuth) {
             Appacitive.Users.login(request.username, request.password).then(function (authResult) {

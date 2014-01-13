@@ -79,7 +79,15 @@ MyTrips.DetailsView = function (controller) {
             } 
             $('.jPreloader').hide();
             $('.jpageEndPreloader').hide();
-        }
+        },
+		onGetVideoSuccess:function(response){
+			if (response) {
+                var post = _helper.getPostForVideo(response.getObject());
+                _view.displayBodyHolder(post);
+                _view.controls.init();
+			}
+		}
+		
     };
 
     var _helper = {
@@ -95,6 +103,17 @@ MyTrips.DetailsView = function (controller) {
                 }
             }
         },
+		getPostForVideo:function(resObject){
+			var posts = controller.model.posts;
+
+            for (var i = 0; i < posts.length; i++) {
+
+                if (posts[i].targetId === resObject.__id) {
+                    posts[i].url = resObject.url;
+                    return posts[i];
+                }
+            }
+		},
         clearHolder: function () {
             _view.placeHolders.headerHolder.html('');
             _view.placeHolders.middleLayerHolder.html('');
@@ -130,7 +149,9 @@ MyTrips.DetailsView = function (controller) {
 
                 if (data[i].type === "photo") {
                     controller.connector.getImagesForPost(data[i].targetId, _view.onGetImageSuccess);
-                }
+                }else if(data[i].type === "video"){
+					controller.connector.getVideosForPost(data[i].targetId, _view.onGetVideoSuccess);
+				}
             }
         }
         $('.jpageEndPreloader').hide();
