@@ -40,6 +40,7 @@ MyTrips.Controller = function (model) {
                 if (!_self.model.trips.isLastPage && data === 'mainView') {
                     query.fetchNext().then(successHandler);
                 }
+				
             });
             query.fetch().then(function (trips) {
                 successHandler(trips);

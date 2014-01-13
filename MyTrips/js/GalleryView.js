@@ -43,6 +43,7 @@ MyTrips.GalleryView = function (controller) {
             console.log(galleryObject);
             _view.displayBody(galleryObject);
             $("#Gallery a").photoSwipe();
+								
         },
         convertToGalleryTemplateObj: function (photos) {
             var galleryArray = [];
