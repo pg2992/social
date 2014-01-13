@@ -27,7 +27,7 @@ MyTrips.Model = function (authResult) {
 
     this.postsPageModel = { currentPage: 0, pageSize: 5, totalItems: 0, totalFilterItems: 0, isLastPage: false };
 	
-	this.galleryPageModel = { currentPage: 0, pageSize: 5, totalItems: 0, totalFilterItems: 0, isLastPage: false };
+	this.galleryPageModel = { currentPage: 0, pageSize: 10, totalItems: 0, totalFilterItems: 0, isLastPage: false };
 	
     this.currentTrip = {
         trip: null
