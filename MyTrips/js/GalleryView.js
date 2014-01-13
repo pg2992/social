@@ -46,8 +46,6 @@ MyTrips.GalleryView = function (controller) {
         },
         convertToGalleryTemplateObj: function (photos) {
             var galleryArray = [];
-            controller.model.tripsPageModel.totalItems = 5;
-            //controller.model.pageModel.isLastPage = phot.isLastPage;
             for (var i = 0; i < photos.length ; i++) {
                 galleryArray[i] = photos[i].getObject();
 

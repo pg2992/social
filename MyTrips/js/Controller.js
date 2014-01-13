@@ -137,7 +137,7 @@ MyTrips.Controller = function (model) {
                 relation: 'photos',
                 returnEdge: false,
                 label: 'photo',
-                pageSize: _self.model.tripsPageModel.pageSize,
+                pageSize: _self.model.galleryPageModel.pageSize,
                 orderby: '__utcdatecreated'
             });
 
