@@ -264,8 +264,11 @@
                 <img src="{{this.url}}" alt="austria">
 				{{/equal}}
 				{{#equal this.type "video"}}
-				<embed class="videoPost" src="{{this.url}}" type="application/x-shockwave-flash">
-</embed>
+				<!-- <embed class="videoPost" src="{{this.url}}" type="application/x-shockwave-flash">
+</embed> -->
+				<iframe width="550" height="309"
+						src="{{this.url}}" frameborder="0" allowfullscreen>
+				</iframe>
 				{{/equal}}
                 <div class="social-buttons">
                     <ul class="clearfix">
@@ -319,8 +322,6 @@
           <div class="row-fluid">
           <div class="user-login-form pagination-centered">
                <input type="text" placeholder="Username" class="username">
-
-
 
                     <input type="password" placeholder="Password" class="password">
 
