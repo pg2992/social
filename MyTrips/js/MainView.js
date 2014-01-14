@@ -157,6 +157,7 @@ MyTrips.MainView = function (controller) {
                     controller.model.currentTrip = trips[i];
                 }
             }
+			controller.model.posts = [];
         }
 
 
