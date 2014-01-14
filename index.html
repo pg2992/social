@@ -271,11 +271,11 @@
                 <img src="{{this.url}}" alt="austria">
 				{{/equal}}
 				{{#equal this.type "video"}}
-				 <embed class="videoPost" src="{{this.url}}" type="application/x-shockwave-flash">
-</embed> 
-				<!-- <iframe width="550" height="309"
-						src="{{this.url}}" frameborder="0" allowfullscreen>
-				</iframe> -->
+				<div class="videoPost">
+				 <iframe src="{{this.url}}" frameborder="0" allowfullscreen></iframe> 
+				</div>
+				<!-- <embed src="{{this.url}}" type="application/x-shockwave-flash"></embed> 
+				-->
 				{{/equal}}
                 <div class="social-buttons">
                     <ul class="clearfix">
