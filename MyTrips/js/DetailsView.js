@@ -162,7 +162,8 @@ MyTrips.DetailsView = function (controller) {
 
             if ($(window).scrollTop() + $(window).height() == $(document).height()) {
                 controller.model.isPageEnd = true;
-                $('.jpageEndPreloader').show();
+                if(controller.model.currentPage != 'loginView')
+					$('.jpageEndPreloader').show();
                 controller.event.pageEnd.notify(controller.model.currentPage);
             }
         }

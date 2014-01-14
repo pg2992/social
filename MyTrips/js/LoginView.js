@@ -20,6 +20,7 @@ MyTrips.LoginView = function (controller) {
                 _view.placeHolders.middleLayerHolder = $("#middleLayer");
                 _view.placeHolders.bodyHolder = $("#body");
 				_view.placeHolders.loginHolder = $("#loginView");
+				controller.model.currentPage = 'loginView';
             }
         },
 
@@ -37,6 +38,7 @@ MyTrips.LoginView = function (controller) {
             _view.placeHolders.middleLayerHolder.html('');
 			_view.placeHolders.loginHolder.html(_template.tmpl_LoginView);
             _view.placeHolders.bodyHolder.html('');
+			$(".jpageEndPreloader").hide();
             _view.controls.init();
             _view.bind();
         },
@@ -44,19 +46,16 @@ MyTrips.LoginView = function (controller) {
         bind: function () {
 
             _view.controls.btnLogin.click(function () {
-
-
-
+				if(($('.username').val().length > 0) && ($('.username').val().length > 0)){
+				$(this).button('loading');
                 var request = {
 
                     username: $('.username').val(),
                     password: $('.password').val()
 
                 };
-
-
                 controller.connector.isAuthenticated(request, _view.onAuth);
-
+				}
             });
 
         },
@@ -69,7 +68,7 @@ MyTrips.LoginView = function (controller) {
 				_view.placeHolders.loginHolder.html('');
                 initApp();
             } else {
-                
+				_view.controls.btnLogin.button("reset");
                 _view.controls.dvError.show();
             }
         }
