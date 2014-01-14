@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=480px, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>My Rovia Trips</title>
@@ -19,7 +19,7 @@
     <script src="Resources/js/code-photoswipe-1.0.11.min.js"></script>
 	<script src="Resources/AppacitiveSDK.js"></script>
     
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"> device-width</script>-->
     <script src="Resources/js/bootstrap.min.js"></script>
     <script src="Resources/js/jquery.sidr.min.js"></script>
     
@@ -271,11 +271,11 @@
                 <img src="{{this.url}}" alt="austria">
 				{{/equal}}
 				{{#equal this.type "video"}}
-				<!-- <embed class="videoPost" src="{{this.url}}" type="application/x-shockwave-flash">
-</embed> -->
-				<iframe width="550" height="309"
+				 <embed class="videoPost" src="{{this.url}}" type="application/x-shockwave-flash">
+</embed> 
+				<!-- <iframe width="550" height="309"
 						src="{{this.url}}" frameborder="0" allowfullscreen>
-				</iframe>
+				</iframe> -->
 				{{/equal}}
                 <div class="social-buttons">
                     <ul class="clearfix">
