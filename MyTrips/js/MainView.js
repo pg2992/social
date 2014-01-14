@@ -78,7 +78,29 @@ MyTrips.MainView = function (controller) {
         displaySideBar: function () {
             var html = _template.tmpl_SideBar(controller.model.user);
             _view.controls.sideBarHolder.html(html);
-            $('#simple-menu').sidr();
+			
+			var flag = false;
+			
+			$('#dummy').sidr();
+			$('#simple-menu').click(function(e){
+				$('#dummy').trigger('click');
+			});
+			
+			$(document).click(function(){
+				if(parseInt($('#sidr').css('left').replace('px',''), 10) < 0) return;
+				
+				setTimeout(function(){
+					flag = false;
+				}, 1000);
+				
+				if(flag) return;
+				flag = true;
+				$('#dummy').trigger('click');
+			});
+			
+			$('#sidr').click(function(e) {
+				e.stopPropagation();
+			});
         },
 
 
@@ -108,10 +130,8 @@ MyTrips.MainView = function (controller) {
             for (var i = 0; i < trips.length; i++) {
                 var id = "#" + trips[i].__id;
                 _view.controls.listViewHolder.on("click", id, function() {
-					if(!($("body").hasClass("sidr-open"))){
                     _helper.saveCurrentTrip($(this).attr('id'));
                     controller.event.loadTripDetails.notify({rec:"detailsView",sender:"mainView"});
-					}
                 });
             }
         },

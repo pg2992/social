@@ -29,6 +29,7 @@ MyTrips.LoginView = function (controller) {
             dvError: null,
             init: function () {
                 _view.controls.btnLogin = $(".jsLogin");
+				_view.controls.dvError = $(".jsError");
             }
         },
 
@@ -48,6 +49,7 @@ MyTrips.LoginView = function (controller) {
             _view.controls.btnLogin.click(function () {
 				if(($('.username').val().length > 0) && ($('.username').val().length > 0)){
 				$(this).button('loading');
+				_view.controls.dvError.hide();
                 var request = {
 
                     username: $('.username').val(),
