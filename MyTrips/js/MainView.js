@@ -25,10 +25,12 @@ MyTrips.MainView = function (controller) {
             gridViewBtn: null,
             trip: null,
             preLoader: null,
+			btnMenu:null,
             init: function () {
                 _view.controls.trip = $(".jTrip", _view.controls.listViewHolder);
                 _view.controls.listViewHolder = $(".jLVTripHolder");
                 _view.controls.gridViewHolder = $(".jGVTripHolder");
+				_view.controls.btnMenu = $("#simple-menu");
 
             }
         },
@@ -85,11 +87,7 @@ MyTrips.MainView = function (controller) {
                 _view.controls.listViewHolder.toggle();
                 _view.controls.gridViewHolder.toggle();
             });
-
-            //_view.controls.trip.on("click", function () {
-            //    var tripId = $(this).attr('id');
-            //    controller.event.loadTripDetails.notify();
-            //});
+				
         }
 
     }
@@ -110,8 +108,10 @@ MyTrips.MainView = function (controller) {
             for (var i = 0; i < trips.length; i++) {
                 var id = "#" + trips[i].__id;
                 _view.controls.listViewHolder.on("click", id, function() {
+					if(!($("body").hasClass("sidr-open"))){
                     _helper.saveCurrentTrip($(this).attr('id'));
                     controller.event.loadTripDetails.notify({rec:"detailsView",sender:"mainView"});
+					}
                 });
             }
         },
