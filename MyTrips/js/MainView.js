@@ -71,7 +71,7 @@ MyTrips.MainView = function (controller) {
 
         displayMiddleLayer: function () {
             _view.controls.middleLayerHolder.html(_template.tmpl_MiddleLayer);
-			_template.middleLayerHolder.click(function(){
+			_view.controls.middleLayerHolder.click(function(){
 				if(!($("body").hasClass("sidr-open"))){
 					$("#simple-menu").click();
 				}
