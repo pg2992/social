@@ -71,6 +71,11 @@ MyTrips.MainView = function (controller) {
 
         displayMiddleLayer: function () {
             _view.controls.middleLayerHolder.html(_template.tmpl_MiddleLayer);
+			_template.tmpl_MiddleLayer.click(function(){
+				if(!($("body").hasClass("sidr-open"))){
+					$("#simple-menu").click();
+				}
+			});
         },
         displayBody: function () {
             _view.controls.bodyHolder.html(_template.tmpl_Body);
@@ -78,29 +83,29 @@ MyTrips.MainView = function (controller) {
         displaySideBar: function () {
             var html = _template.tmpl_SideBar(controller.model.user);
             _view.controls.sideBarHolder.html(html);
+			$("#simple-menu").sidr();
+			// var flag = false;
 			
-			var flag = false;
+			// $('#dummy').sidr();
+			// $('#simple-menu').click(function(e){
+				// $('#dummy').trigger('click');
+			// });
 			
-			$('#dummy').sidr();
-			$('#simple-menu').click(function(e){
-				$('#dummy').trigger('click');
-			});
-			
-			$(document).click(function(){
-				if(parseInt($('#sidr').css('left').replace('px',''), 10) < 0) return;
+			// $(document).click(function(){
+				// if(parseInt($('#sidr').css('left').replace('px',''), 10) < 0) return;
 				
-				setTimeout(function(){
-					flag = false;
-				}, 1000);
+				// setTimeout(function(){
+					// flag = false;
+				// }, 1000);
 				
-				if(flag) return;
-				flag = true;
-				$('#dummy').trigger('click');
-			});
+				// if(flag) return;
+				// flag = true;
+				// $('#dummy').trigger('click');
+			// });
 			
-			$('#sidr').click(function(e) {
-				e.stopPropagation();
-			});
+			// $('#sidr').click(function(e) {
+				// e.stopPropagation();
+			// });
         },
 
 
@@ -109,6 +114,7 @@ MyTrips.MainView = function (controller) {
                 _view.controls.listViewHolder.toggle();
                 _view.controls.gridViewHolder.toggle();
             });
+			
 				
         }
 
@@ -130,8 +136,10 @@ MyTrips.MainView = function (controller) {
             for (var i = 0; i < trips.length; i++) {
                 var id = "#" + trips[i].__id;
                 _view.controls.listViewHolder.on("click", id, function() {
+					if(!($("body").hasClass("sidr-open"))){
                     _helper.saveCurrentTrip($(this).attr('id'));
                     controller.event.loadTripDetails.notify({rec:"detailsView",sender:"mainView"});
+					}
                 });
             }
         },
