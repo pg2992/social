@@ -140,6 +140,9 @@ MyTrips.MainView = function (controller) {
                     _helper.saveCurrentTrip($(this).attr('id'));
                     controller.event.loadTripDetails.notify({rec:"detailsView",sender:"mainView"});
 					}
+					else{
+						$("#simple-menu").trigger("click");
+					}
                 });
             }
         },
